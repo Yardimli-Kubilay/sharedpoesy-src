@@ -36,7 +36,7 @@ if (import.meta.env.MODE === "production")
   pocketbase_ip = "http://193.168.146.91";
 else pocketbase_ip = "http://127.0.0.1:8090";
 const pb = new PocketBase(pocketbase_ip);
-
+//gajavajhvjav,jv gakvjvahjs
 export default {
   methods: {
     //this method allows a new user to sign up the system. Once done, the user receives an email
