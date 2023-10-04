@@ -33,7 +33,7 @@ import PocketBase from "pocketbase";
 <script>
 var pocketbase_ip = "";
 if (import.meta.env.MODE === "production")
-  pocketbase_ip = "http://193.168.146.91";
+  pocketbase_ip = "http://193.168.146.91:80";
 else pocketbase_ip = "http://127.0.0.1:8090";
 const pb = new PocketBase(pocketbase_ip);
 //gajavajhvjav,jv gakvjvahjs
@@ -67,6 +67,12 @@ export default {
           .collection("users")
           .requestVerification(document.getElementById("email").value);
       }
+    },
+    async logout() {
+      const currentUser = await pb.collection("users").logout();
+      if (pb.authStore.isValid) {
+          document.getElementById("status").innerHTML = "You are now logged out";
+        }
     },
   },
 };
