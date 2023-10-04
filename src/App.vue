@@ -69,8 +69,8 @@ export default {
       }
     },
     async logout() {
-      const currentUser = await pb.collection("users").logout();
-      if (pb.authStore.isValid) {
+      await pb.authStore.logout();
+        if (pb.authStore.isValid) {
           document.getElementById("status").innerHTML = "You are now logged out";
         }
     },
